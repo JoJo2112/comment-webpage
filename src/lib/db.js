@@ -1,13 +1,8 @@
+import 'dotenv/config';
 import pg from 'pg';
 const { Pool } = pg;
 
-const pool = new Pool({
-  user: 'postgres',
-  host: 'localhost',
-  database: 'strapi-metacomment',
-  password: 'postgres',
-  port: 5432,
-});
+const pool = new Pool();
 
 const db = {
   query: async (text, params) => {
