@@ -12,6 +12,8 @@
 </script>
 
 <script>
+  import Charts from '$lib/components/Charts.svelte';
+
   export let simpleMetrics;
 </script>
 
@@ -32,4 +34,5 @@
       <div class="text-neutral-500 text-sm">Kommentare pro Artikel</div>
     </div>
   </div>
+  <Charts />
 </div>
