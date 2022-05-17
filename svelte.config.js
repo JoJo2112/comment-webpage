@@ -6,7 +6,10 @@ const config = {
     adapter: adapter(),
     vite: () => ({
       ssr: {
-        external: ['pg', 'dotenv'],
+        external: ['pg-native'],
+      },
+      optimizeDeps: {
+        exclude: ['pg-native'],
       },
     }),
   },
