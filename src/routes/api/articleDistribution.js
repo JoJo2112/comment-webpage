@@ -1,8 +1,8 @@
-import * as db from '$lib/db';
+import { query } from '$lib/db';
 
 export async function get() {
   try {
-    const count = await db.query(
+    const count = await query(
       'SELECT platforms.name, COUNT(*) FROM articles_platform_links, platforms WHERE articles_platform_links.platform_id = platforms.id GROUP BY name;'
     );
 
