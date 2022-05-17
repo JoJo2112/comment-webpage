@@ -19,7 +19,10 @@ const config = {
     }),
     vite: () => ({
       ssr: {
-        external: ['pg'],
+        external: ['pg-native'],
+      },
+      optimizeDeps: {
+        exclude: ['pg-native'],
       },
     }),
   },
