@@ -2,6 +2,7 @@ import * as db from '$lib/db';
 
 export async function get() {
   try {
+    console.log(db);
     const articleCount = await db.query('SELECT COUNT(*) FROM articles;');
     const commentCount = await db.query('SELECT COUNT(*) FROM comments;');
     return {
