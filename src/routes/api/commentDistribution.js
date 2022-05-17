@@ -1,4 +1,4 @@
-import * as db from '$lib/db';
+import * as db from '$lib/db.js';
 
 export async function get() {
   try {
