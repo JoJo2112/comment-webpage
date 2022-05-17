@@ -1,17 +1,12 @@
 import 'dotenv/config';
 import postgres from 'postgres';
 
-let _sql;
-
-function getSql() {
-  if (_sql) return _sql;
-  _sql = postgres();
-  return _sql;
-}
+let _sql = postgres();
 
 async function sql() {
+  if (!_sql) _sql = postgres();
   const start = Date.now();
-  const res = await getSql().apply(_sql, arguments);
+  const res = await _sql.apply(_sql, arguments);
   console.log('executed query', {
     text: res.statement.string,
     duration: Date.now() - start,
