@@ -12,8 +12,6 @@ function getSql() {
 async function sql() {
   const start = Date.now();
   const res = await getSql().apply(_sql, arguments);
-
-  _sql.apply(_sql, arguments);
   console.log('executed query', {
     text: res.statement.string,
     duration: Date.now() - start,
