@@ -6,6 +6,7 @@ async function sql() {
   if (!_sql) {
     const pg = (await import('postgres')).default;
     _sql = pg();
+    console.log('New postgres instance created');
   }
   const start = Date.now();
   const res = await _sql.apply(_sql, arguments);
