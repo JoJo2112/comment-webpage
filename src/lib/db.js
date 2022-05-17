@@ -1,10 +1,14 @@
 import 'dotenv/config';
 
 const createPool = async () => {
-  const pg = (await import('pg')).default;
-  const { Pool } = pg;
-  console.log('new POOOL');
-  return new Pool();
+  try {
+    const pg = (await import('pg')).default;
+    const { Pool } = pg;
+    console.log('new Pool created.');
+    return new Pool();
+  } catch (e) {
+    console.log(e);
+  }
 };
 
 const pool = createPool();
