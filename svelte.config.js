@@ -1,8 +1,8 @@
 import vercel from '@sveltejs/adapter-vercel';
 
-export default {
+/** @type {import('@sveltejs/kit').Config} */
+const config = {
   kit: {
-    // default options are shown
     adapter: vercel({
       // if true, will deploy the app using edge functions
       // (https://vercel.com/docs/concepts/functions/edge-functions)
@@ -17,5 +17,12 @@ export default {
       // instead of creating a single one for the entire app
       split: false,
     }),
+    vite: () => ({
+      ssr: {
+        external: ['pg'],
+      },
+    }),
   },
 };
+
+export default config;
