@@ -20,8 +20,7 @@ async function query() {
 async function begin(callback) {
   if (!sql) {
     console.log('No pg instance, creating...');
-    const pg = (await import('postgres')).default;
-    sql = pg();
+    sql = (await import('postgres')).default();
   }
   const start = Date.now();
   const res = await sql.begin(callback);
