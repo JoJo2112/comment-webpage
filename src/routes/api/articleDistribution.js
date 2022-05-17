@@ -1,9 +1,9 @@
-import sql from '$lib/db';
+import * as db from '$lib/db';
 
 export async function get() {
   try {
     const count =
-      await sql`SELECT platforms.name, COUNT(*) FROM articles_platform_links, platforms WHERE articles_platform_links.platform_id = platforms.id GROUP BY name;`;
+      await db.query`SELECT platforms.name, COUNT(*) FROM articles_platform_links, platforms WHERE articles_platform_links.platform_id = platforms.id GROUP BY name;`;
 
     let sorted = count.sort((x, y) => {
       if (x.name < y.name) return -1;

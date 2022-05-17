@@ -1,13 +1,13 @@
-let _sql;
+let sql;
 
-async function sql() {
-  if (!_sql) {
+async function query() {
+  if (!sql) {
     console.log('No pg instance, creating...');
     const pg = (await import('postgres')).default;
-    _sql = pg();
+    sql = pg();
   }
   const start = Date.now();
-  const res = await _sql.apply(_sql, arguments);
+  const res = await sql.apply(sql, arguments);
   console.log('executed query', {
     text: res.statement.string,
     duration: Date.now() - start,
@@ -16,4 +16,4 @@ async function sql() {
   return res;
 }
 
-export default sql;
+export { query };
