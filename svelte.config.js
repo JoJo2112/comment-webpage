@@ -15,7 +15,7 @@ export default {
 
       // if true, will split your app into multiple functions
       // instead of creating a single one for the entire app
-      split: true,
+      split: false,
     }),
   },
 };
