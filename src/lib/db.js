@@ -6,6 +6,7 @@ const { Pool } = pg;
 const pool = new Pool();
 
 async function query(text, params) {
+  console.log(pool);
   const start = Date.now();
   const res = await pool.query(text, params);
   const duration = Date.now() - start;
