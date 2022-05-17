@@ -2,11 +2,14 @@ import * as db from '$lib/db';
 
 export async function get() {
   try {
-    const res = await db.query`SELECT * from comments LIMIT 100;`;
+    const articles = await db.begin(async (sql) => {
+      const articles = await sql`SELECT * FROM articles LIMIT 10`;
+      return articles;
+    });
 
     return {
       body: {
-        res,
+        articles,
       },
     };
   } catch (e) {
