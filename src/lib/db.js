@@ -1,17 +1,17 @@
 import 'dotenv/config';
+import postgres from 'postgres';
 
-import pg from 'pg';
-const { Pool } = pg;
+const _sql = postgres();
 
-const pool = new Pool();
-
-async function query(text, params) {
-  console.log(pg);
+async function sql() {
   const start = Date.now();
-  const res = await pool.query(text, params);
-  const duration = Date.now() - start;
-  console.log('executed query', { text, duration, rows: res.rowCount });
+  const res = await _sql.apply(_sql, arguments);
+  console.log('executed query', {
+    text: res.statement.string,
+    duration: Date.now() - start,
+    rows: res.count,
+  });
   return res;
 }
 
-export { query };
+export default sql;
