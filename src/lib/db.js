@@ -5,7 +5,7 @@ const { Pool } = pg;
 
 const pool = new Pool();
 
-async function query(text, params) {
+async function query2(text, params) {
   const start = Date.now();
   const res = await pool.query(text, params);
   const duration = Date.now() - start;
@@ -13,4 +13,4 @@ async function query(text, params) {
   return res;
 }
 
-export { query };
+export { query2 };

@@ -2,7 +2,7 @@ import * as db from '$lib/db';
 
 export async function get() {
   try {
-    const count = await db.query(
+    const count = await db.query2(
       'SELECT platforms.name, COUNT(*) FROM comments_platform_links, platforms WHERE comments_platform_links.platform_id = platforms.id GROUP BY name'
     );
 
