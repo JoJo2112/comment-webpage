@@ -5,8 +5,8 @@ const config = {
   kit: {
     adapter: adapter(),
     vite: () => ({
-      optimizeDeps: {
-        exclude: ['pg', 'dotenv'],
+      ssr: {
+        external: ['pg-native'],
       },
     }),
   },
