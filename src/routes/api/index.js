@@ -1,4 +1,5 @@
 import sql from '$lib/db';
+import 'dotenv/config';
 
 export async function get() {
   try {
