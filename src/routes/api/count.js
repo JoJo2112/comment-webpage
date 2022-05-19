@@ -1,9 +1,9 @@
-import * as db from '$lib/db';
+import { query } from '$lib/testdb';
 
 export async function get() {
   try {
-    const articleCount = await db.query`SELECT COUNT(*) FROM articles;`;
-    const commentCount = await db.query`SELECT COUNT(*) FROM comments;`;
+    const articleCount = await query`SELECT COUNT(*) FROM articles;`;
+    const commentCount = await query`SELECT COUNT(*) FROM comments;`;
     return {
       body: {
         articleCount: articleCount[0].count,

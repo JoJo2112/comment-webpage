@@ -2,8 +2,8 @@ import pg from 'postgres';
 
 const sql = pg();
 
+//for queries (logs statement, duration and number of rows)
 async function query() {
-  console.log(sql);
   const start = Date.now();
   const res = await sql.apply(sql, arguments);
   console.log('executed query', {
@@ -14,4 +14,14 @@ async function query() {
   return res;
 }
 
-export { query };
+//for transactions (only logs duration)
+async function begin(callback) {
+  const start = Date.now();
+  const res = await sql.begin(callback);
+  console.log('executed transaction', {
+    duration: Date.now() - start,
+  });
+  return res;
+}
+
+export { query, begin };
