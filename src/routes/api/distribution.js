@@ -1,4 +1,4 @@
-import { query } from '$lib/testdb';
+import { query } from '$lib/db';
 
 export async function get() {
   try {

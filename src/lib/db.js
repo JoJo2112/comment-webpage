@@ -1,11 +1,9 @@
-let sql;
+import pg from 'postgres';
 
-//for queries, logs statement, duration and number of rows
+const sql = pg();
+
+//for queries (logs statement, duration and number of rows)
 async function query() {
-  if (!sql) {
-    console.log('No pg instance, creating...');
-    sql = (await import('postgres')).default();
-  }
   const start = Date.now();
   const res = await sql.apply(sql, arguments);
   console.log('executed query', {
@@ -16,12 +14,8 @@ async function query() {
   return res;
 }
 
-//for transactions, only logs duration
+//for transactions (only logs duration)
 async function begin(callback) {
-  if (!sql) {
-    console.log('No pg instance, creating...');
-    sql = (await import('postgres')).default();
-  }
   const start = Date.now();
   const res = await sql.begin(callback);
   console.log('executed transaction', {

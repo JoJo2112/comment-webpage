@@ -1,8 +1,8 @@
-import { query } from '$lib/testdb';
+import { query } from '$lib/db';
 
 export async function get() {
   try {
-    const res = await query`SELECT * FROM articles;`;
+    const res = await query`SELECT * FROM articles LIMIT 1;`;
 
     return {
       body: {
