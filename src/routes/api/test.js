@@ -2,7 +2,7 @@ import { query } from '$lib/testdb';
 
 export async function get() {
   try {
-    const res = query`SELECT COUNT(*) FROM articles;`;
+    const res = await query`SELECT * FROM articles;`;
 
     return {
       body: {
