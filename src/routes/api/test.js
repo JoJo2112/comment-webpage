@@ -1,15 +1,12 @@
-import * as db from '$lib/db';
+import pg from 'postgres';
 
-export async function get() {
+export async function get({ params }) {
   try {
-    const articles = await db.begin(async (sql) => {
-      const articles = await sql`SELECT * FROM articles LIMIT 10`;
-      return articles;
-    });
+    console.log(pg);
 
     return {
       body: {
-        articles,
+        params,
       },
     };
   } catch (e) {
