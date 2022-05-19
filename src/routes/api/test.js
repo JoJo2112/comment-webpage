@@ -1,12 +1,12 @@
-import pg from 'postgres';
+import { pg } from '$lib/testdb';
 
-export async function get({ params }) {
+export async function get(test) {
   try {
     console.log(pg);
 
     return {
       body: {
-        params,
+        test,
       },
     };
   } catch (e) {
