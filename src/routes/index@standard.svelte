@@ -1,6 +1,6 @@
 <script context="module">
   export async function load({ fetch }) {
-    const response = await fetch('/api');
+    const response = await fetch('/api/count');
 
     return {
       status: response.status,
