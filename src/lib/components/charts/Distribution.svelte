@@ -52,7 +52,15 @@
           },
         ],
       },
-      options: { maintainAspectRatio: false },
+      options: {
+        plugins: {
+          title: {
+            display: true,
+            text: 'Artikel nach Zeitung',
+          },
+        },
+        maintainAspectRatio: false,
+      },
     });
 
     new Chart(commentCanvas, {
@@ -70,7 +78,15 @@
           },
         ],
       },
-      options: { maintainAspectRatio: false },
+      options: {
+        plugins: {
+          title: {
+            display: true,
+            text: 'Artikel nach Kommentaren',
+          },
+        },
+        maintainAspectRatio: false,
+      },
     });
   });
 </script>
