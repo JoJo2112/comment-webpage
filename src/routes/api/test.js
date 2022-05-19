@@ -1,8 +1,8 @@
-import { sql } from '$lib/testdb';
+import { query } from '$lib/testdb';
 
 export async function get(test) {
   try {
-    console.log(sql);
+    query`test`;
 
     return {
       body: {
