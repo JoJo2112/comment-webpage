@@ -1,12 +1,12 @@
 import { query } from '$lib/testdb';
 
-export async function get(test) {
+export async function get() {
   try {
-    query`test`;
+    const res = query`SELECT * FROM articles;`;
 
     return {
       body: {
-        test,
+        res,
       },
     };
   } catch (e) {
