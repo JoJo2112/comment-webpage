@@ -1,8 +1,8 @@
-import { pg } from '$lib/testdb';
+import { sql } from '$lib/testdb';
 
 export async function get(test) {
   try {
-    console.log(pg);
+    console.log(sql);
 
     return {
       body: {

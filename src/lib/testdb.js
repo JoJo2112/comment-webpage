@@ -1,3 +1,5 @@
 import pg from 'postgres';
 
-export { pg };
+const sql = pg();
+
+export { sql };
