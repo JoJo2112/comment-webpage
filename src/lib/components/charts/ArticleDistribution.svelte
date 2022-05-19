@@ -50,6 +50,6 @@
   });
 </script>
 
-<div class="flex-1 p-3 min-w-[300px] min-h-[300px]">
+<div class="flex-1 p-2 min-w-[300px] min-h-[300px]">
   <canvas bind:this={chartCanvas} aria-label="chart" />
 </div>
