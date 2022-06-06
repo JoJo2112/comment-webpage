@@ -13,6 +13,7 @@
 
 <script>
   import Charts from '$lib/components/Charts.svelte';
+  import Keywords from '$lib/components/Keywords.svelte';
 
   export let simpleMetrics;
 </script>
@@ -35,4 +36,5 @@
     </div>
   </div>
   <Charts />
+  <Keywords />
 </div>
