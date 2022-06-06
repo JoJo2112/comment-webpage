@@ -1,5 +1,4 @@
 <script>
-  import Chart from 'chart.js/auto/auto.js';
   import { onMount } from 'svelte';
 
   let articleCanvas;
@@ -11,29 +10,28 @@
   let commentLabels = [];
   let commentData = [];
 
-  onMount(async () => {
-    const res = await fetch(`/api/distribution`);
-    let distriution = await res.json();
+  export let keywordData;
 
-    for (let newspaper of distriution.articleDistr) {
+  onMount(() => {
+    for (let newspaper of keywordData.articleDistr) {
       articleLabels = [
         ...articleLabels,
         newspaper.name.charAt(0).toUpperCase() + newspaper.name.slice(1),
       ];
     }
 
-    for (let newspaper of distriution.articleDistr) {
+    for (let newspaper of keywordData.articleDistr) {
       articleData = [...articleData, newspaper.count];
     }
 
-    for (let newspaper of distriution.commentDistr) {
+    for (let newspaper of keywordData.commentDistr) {
       commentLabels = [
         ...commentLabels,
         newspaper.name.charAt(0).toUpperCase() + newspaper.name.slice(1),
       ];
     }
 
-    for (let newspaper of distriution.commentDistr) {
+    for (let newspaper of keywordData.commentDistr) {
       commentData = [...commentData, newspaper.count];
     }
 
@@ -93,9 +91,11 @@
   });
 </script>
 
-<div class="flex-1 p-2 min-w-[300px] min-h-[300px]">
-  <canvas bind:this={articleCanvas} aria-label="articleChart" />
-</div>
-<div class="flex-1 p-2 min-w-[300px] min-h-[300px]">
-  <canvas bind:this={commentCanvas} aria-label="commentChart" />
+<div class="flex max-w-screen-lg flex-wrap">
+  <div class="flex-1 p-2 min-w-[300px] min-h-[300px]">
+    <canvas bind:this={articleCanvas} aria-label="articleChart" />
+  </div>
+  <div class="flex-1 p-2 min-w-[300px] min-h-[300px]">
+    <canvas bind:this={commentCanvas} aria-label="commentChart" />
+  </div>
 </div>
